@@ -36,4 +36,9 @@ export const fetchTodos = () => {
   }
 }
 
+export const createTodo = (todo) => dispatch => {
+  debugger
+  return todoApiUtil.createTodo(todo).then((res) => dispatch(receiveTodo(res)));
+}
+
 window.fetchTodos = fetchTodos;

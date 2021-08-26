@@ -11,20 +11,29 @@ class TodoForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.resetform = this.resetform.bind(this);
   }
 
   update(property) {
     return e => this.setState({[property]: e.target.value});
   }
 
+  resetform() {
+    this.setState({
+        title: "",
+        body: ""
+      })
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     const todo = Object.assign({}, this.state, { id: uniqueId() });
-    this.props.receiveTodo(todo);
-    this.setState({
-      title: "",
-      body: ""
-    }); // reset form
+    console.log("not working")
+    let resetForm = this.resetform
+    debugger
+    this.props.createTodo({todo}) //.then(
+  // () => this.setState({title: '', body: ''})
+// ); // reset form
   }
 
   render() {
